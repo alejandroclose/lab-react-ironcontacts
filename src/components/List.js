@@ -64,21 +64,20 @@ class List extends Component {
   render() {
     return (
       <div>
-        <button
+        <button className="button"
           onClick={() => {
             this.randomContact();
-          }}
-        >
+          }} >
           Add random contact
         </button>
-        <button
+        <button className="button"
           onClick={() => {
             this.sortByName();
           }}
         >
           Sort by Name
         </button>
-        <button
+        <button className="button"
           onClick={() => {
             this.sortByPopularity();
           }}
@@ -106,13 +105,11 @@ class List extends Component {
                   <td>{contact.name}</td>
                   <td>{contact.popularity.toFixed(2)}</td>
                   <td>
-                    <button
+                    <button className="delete"
                       onClick={() => {
                         this.handleDelete(index);
                       }}
-                    >
-                      Delete
-                    </button>
+                    >Delete</button>
                   </td>
                 </tr>
               );
