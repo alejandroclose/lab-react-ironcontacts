@@ -52,6 +52,15 @@ class List extends Component {
     });
   };
 
+  handleDelete = index => {
+    console.log(index);
+    const { list } = this.state;
+    list.splice(index, 1);
+    this.setState({
+      list
+    });
+  };
+
   render() {
     return (
       <div>
@@ -82,8 +91,9 @@ class List extends Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Action</th>
             </tr>
-            {this.state.list.map(contact => {
+            {this.state.list.map((contact, index) => {
               return (
                 <tr key={contact.name}>
                   <td>
@@ -95,6 +105,15 @@ class List extends Component {
                   </td>
                   <td>{contact.name}</td>
                   <td>{contact.popularity.toFixed(2)}</td>
+                  <td>
+                    <button
+                      onClick={() => {
+                        this.handleDelete(index);
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               );
             })}
